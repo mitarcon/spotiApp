@@ -10,11 +10,13 @@ import { SpotifyService } from '../../services/spotify.service';
 })
 export class SearchComponent implements OnInit {
 
+  term: string = "";
   constructor( private _spotifyService: SpotifyService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
 
-    this._spotifyService.getArtistas( "Metallica" )
+  searchArtist() {
+    this._spotifyService.getArtistas( this.term )
       .subscribe(data => {
         console.log(" Este es la respuesta del servicio ");
         console.log(" Data ", data);
