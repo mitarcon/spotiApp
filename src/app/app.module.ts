@@ -16,6 +16,7 @@ import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { WithoutPicturePipe } from './pipes/without-picture.pipe';
 import { ArtistComponent } from './components/artist/artist.component';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ArtistComponent } from './components/artist/artist.component';
     SearchComponent,
     NavbarComponent,
     WithoutPicturePipe,
-    ArtistComponent
+    ArtistComponent,
+    DomseguroPipe
   ],
   imports: [
     BrowserModule,

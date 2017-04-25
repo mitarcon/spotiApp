@@ -18,7 +18,6 @@ export class SpotifyService {
 
     return this._http.get( url )
       .map( res => {
-        console.log("res ",res.json().artists.items );
         this.artists = res.json().artists.items;
 
         return res.json().artists.items;
@@ -26,13 +25,11 @@ export class SpotifyService {
   }
 
   getArtist( id: string ){
-    console.log( "id ",id );
     let query = `/${ id }`;
     let url = this.urlArtist + query;
 
     return this._http.get( url )
       .map( res => {
-        console.log("res ",res.json() );
         return res.json();
       });
   }
@@ -43,7 +40,6 @@ export class SpotifyService {
 
     return this._http.get( url )
       .map( res => {
-        console.log("res ",res.json().tracks );
         return res.json().tracks;
       });
   }

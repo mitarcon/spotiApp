@@ -20,6 +20,11 @@ hr{
   cursor: pointer;
 }
 
+.img-50{
+    height: 50px;
+    width: 50px;
+}
+
 .carousel-item{
   width: 100%;
   height: 500px;

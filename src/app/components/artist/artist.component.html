@@ -1,3 +1,62 @@
-<pre>
-  {{ artist | json }}
-</pre>
+<div *ngIf="artist" class="main-container container">
+
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <img [src]="artist.images | withoutPicture" class="img-thumbnail img-circle">
+    </div>
+    <div class="cold-md-9">
+      <h3>{{ artist.name }} <small>Popularidad {{ artist.popularity }}</small></h3>
+      <hr>
+      <a [href]="artist.external_urls?.spotify"
+          class="btn btn-outline-success">
+        Ver página
+      </a>
+      <a [routerLink]="['/search']"
+          class="btn btn-outline-danger">
+        Regresar
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="soungs" class="container">
+  <h3>Top de {{ artist.name }}</h3>
+  <hr>
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-inverse table-haver">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Foto</th>
+              <th>Canción</th>
+              <th>Popularidad</th>
+              <th>Preview</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let soung of soungs; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>
+                <img [src]="soung.album?.images | withoutPicture" alt=""
+                      class="img-fluid img-thumbnail img-50">
+              </td>
+              <td>{{ soung.name }}</td>
+              <td>{{ soung.popularity }}%</td>
+              <td>
+                <!-- <audio controls>
+                  <source [src]="soung.preview_url">
+                    Esto es viejo
+                </audio> -->
+                <iframe [src]="soung.uri | domseguro : 'https://open.spotify.com/embed?uri=' " width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
